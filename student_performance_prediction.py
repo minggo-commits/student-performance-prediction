@@ -70,25 +70,36 @@ df = pd.read_csv('/content/exams.csv')
 
 df.head(5)
 
-"""###Exploratory Data Analysis
+"""Pada tahapan ini dilakukan persiapan library yang akan digunakan, selain itu dilakukan juga proses mengunduh dataset dari platform kaggle. Dataset kemudian disimpan pada direktori google colab dan diload untuk digunakan pada tahapan exploratory data analysis (EDA)
+
+###Exploratory Data Analysis
 
 Menampilkan Informasi Setiap Variabel
 """
 
 df.info()
 
-"""Mengecek Deskripsi statistik data"""
+"""Hasil menunjukkan bahwa tidak adanya missing value, hal ini ditunjukkan dengan konsistensi value untuk setiap variabel yang ada. Bukan hanya itu, setiap variabel juga sudah sesuai dengan tipe datanya.
+
+Mengecek Deskripsi statistik data
+"""
 
 df.describe()
 
+"""Hasil menunjukkan bahwa informasi untuk variabel-variabel numerik tidak mengalami anomali. Hal ini ditunjukkan dengan beberapa parameter seperti nilai min dan max, yang dimana untuk varibel seperti math scrore, reading score dan writing score mempunyai nilai min dan max yang masuk akal dikisaran 15-25 untuk nilai min dan diangka 100 untuk nilai max-nya."""
+
 df.describe(include='object')
 
-"""**Exploratory Data Analysis - Missing Value dan Outliers**
+"""Hasil menunjukkan bahwa tidak adanya keanehan pada variabel kategorikal. Hal ini dibuktikan dengan nilai unik pada tiap-tiap variabel yang sudah sesuai dengan data yang ada.
+
+**Exploratory Data Analysis - Missing Value dan Outliers**
 
 Memeriksa Missing Vallue
 """
 
 df.isna().sum()
+
+"""Dilakukan pengecekan missing value berulang dan hasil menunjukkan bahwa data tersebut aman dari missing value. Terlihat pada tabel bahwa setiap variabel memiliki 0 nilai missing value."""
 
 df.shape
 
@@ -108,7 +119,12 @@ for i, col in enumerate(cols):
 plt.tight_layout()
 plt.show()
 
-"""**Exploratory Data Analysis - Univariate Analysis (Categorical)**"""
+"""Hasil menunjukkan bahwa terdapat outliers untuk tiap-tiap variabel numerik yang cenderung left-skewed. Ketiganya menunjukkan cenderung left skewed, terutama math score yang paling jelas terlihat dari banyaknya outlier di kiri dan posisi median di sebelah kanan box. Namun, perlu digaris bawahi bahwa dataset yang digunakan adalah data nilai akademik siswa dan untuk nilai di sekitaran 10-50 itu adalah hal yang memungkinkan terjadi. Jadi dapat disimpulkan bahwa data outliers tersebut masih bisa digunakan untuk membuat model, kecuali data berada di kisaran nilai min yang dimana itu tidak mungkin.
+
+**Exploratory Data Analysis - Univariate Analysis (Categorical)**
+
+Dilakukan pembagian variabel kategori dan numerik untuk memudahkan analisis
+"""
 
 numerical_features = ['math score','reading score','writing score']
 categorical_features = [
@@ -128,7 +144,10 @@ count_percent = pd.DataFrame({'count':count, 'percent':percent})
 print(count_percent)
 count.plot(kind='bar', title=feature)
 
-"""Fitur ras"""
+"""Distribusi gender dalam dataset ini tergolong seimbang, dengan 50.8% siswa berjenis kelamin laki-laki dan 49.2% perempuan. Perbedaan antara kedua kelompok ini sangat kecil, hanya sekitar 1.6%, sehingga dataset dapat dianggap tidak bias terhadap gender tertentu.
+
+Fitur ras
+"""
 
 feature = categorical_features[1]
 count = df[feature].value_counts()
@@ -137,7 +156,10 @@ count_percent = pd.DataFrame({'count':count, 'percent':percent})
 print(count_percent)
 count.plot(kind='bar', title=feature)
 
-"""Fitur Level pendidikan orangtua"""
+"""Distribusi kelompok ras/etnis dalam dataset menunjukkan bahwa mayoritas siswa berasal dari Group C (32.3%), diikuti oleh Group D (25.7%) dan Group B (19.8%). Sementara itu, Group E (14.3%) dan Group A (7.9%) merupakan kelompok dengan jumlah peserta paling sedikit.
+
+Fitur Level pendidikan orangtua
+"""
 
 feature = categorical_features[2]
 count = df[feature].value_counts()
@@ -146,7 +168,12 @@ count_percent = pd.DataFrame({'count':count, 'percent':percent})
 print(count_percent)
 count.plot(kind='bar', title=feature)
 
-"""Fitur Jenis makan siang"""
+"""Distribusi tingkat pendidikan orang tua menunjukkan bahwa sebagian besar berasal dari latar belakang pendidikan menengah hingga awal perguruan tinggi. Kategori terbanyak adalah "some college" (22.4%), diikuti oleh "high school" (21.5%) dan "associate's degree" (20.4%). Ini mengindikasikan bahwa mayoritas orang tua siswa memiliki pengalaman pendidikan pasca-sekolah menengah, meskipun belum tentu menyelesaikan jenjang sarjana.
+
+Sementara itu, proporsi orang tua yang menyelesaikan pendidikan tinggi seperti "bachelor's degree" dan "master's degree" relatif lebih rendah, masing-masing sebesar 10.5% dan 7.5%. Di sisi lain, masih terdapat 17.7% orang tua yang hanya menempuh "some high school", yang berarti belum menyelesaikan pendidikan SMA.
+
+Fitur Jenis makan siang
+"""
 
 feature = categorical_features[3]
 count = df[feature].value_counts()
@@ -155,7 +182,10 @@ count_percent = pd.DataFrame({'count':count, 'percent':percent})
 print(count_percent)
 count.plot(kind='bar', title=feature)
 
-"""Fitur Jenis persiapan tes"""
+"""Sebagian besar siswa dalam dataset ini mendapatkan makan siang standar (66.0%), sementara sisanya sebanyak 34.0% menerima makan siang gratis atau dengan harga yang dikurangi (free/reduced).
+
+Fitur Jenis persiapan tes
+"""
 
 feature = categorical_features[4]
 count = df[feature].value_counts()
@@ -164,12 +194,29 @@ count_percent = pd.DataFrame({'count':count, 'percent':percent})
 print(count_percent)
 count.plot(kind='bar', title=feature)
 
-"""**Exploratory Data Analysis - Univariate Analysis (Numerical)**"""
+"""Mayoritas siswa dalam dataset ini tidak mengikuti kursus persiapan ujian (65.6%), sementara 34.4% siswa tercatat telah menyelesaikan kursus persiapan ujian.
+
+**Kesimpulan dan insight**
+
+Berdasarkan hasil eksplorasi data (EDA) terhadap variabel kategorikal, dapat disimpulkan bahwa distribusi siswa berdasarkan gender cukup seimbang, dengan proporsi laki-laki sebesar 50.8% dan perempuan 49.2%. Dari sisi latar belakang etnis, mayoritas siswa berasal dari group C (32.3%), diikuti oleh group D (25.7%) dan group B (19.8%), sementara group A dan E masing-masing hanya menyumbang 7.9% dan 14.3%. Latar belakang pendidikan orang tua menunjukkan bahwa sebagian besar berasal dari keluarga dengan tingkat pendidikan menengah, seperti “some college” (22.4%) dan “high school” (21.5%). Hanya sedikit orang tua yang memiliki gelar magister (7.5%), yang menunjukkan bahwa sebagian besar siswa mungkin tidak mendapatkan dukungan akademik dari orang tua dengan pendidikan tinggi.
+
+Dari sisi ekonomi, sebanyak 66.0% siswa mendapatkan makan siang standar, sementara 34.0% menerima makan siang gratis atau bersubsidi, yang sering kali menjadi indikator kondisi sosial-ekonomi yang lebih rendah. Selain itu, hanya 34.4% siswa yang telah menyelesaikan kursus persiapan ujian, sedangkan 65.6% lainnya tidak mengikuti kursus tersebut. Hal ini menunjukkan bahwa sebagian besar siswa mungkin menghadapi keterbatasan dalam akses terhadap persiapan akademik tambahan.
+
+Secara keseluruhan, hasil ini memberikan gambaran bahwa faktor sosial-ekonomi, latar belakang pendidikan orang tua, serta akses terhadap fasilitas belajar tambahan dapat menjadi faktor penting yang memengaruhi performa akademik siswa. Analisis lanjutan sangat dianjurkan untuk melihat bagaimana variabel-variabel ini berkorelasi dengan hasil tes akademik seperti nilai matematika, membaca, dan menulis, guna memperoleh pemahaman yang lebih mendalam dan komprehensif.
+
+**Exploratory Data Analysis - Univariate Analysis (Numerical)**
+"""
 
 df.hist(bins=50, figsize=(20,15))
 plt.show()
 
-"""**Exploratory Data Analysis - Multivariate Analysis (Categorical terhadap target)**
+"""**Kesimpulan dan insight**
+
+*   Histogram pertama menampilkan distribusi nilai ujian matematika (math score). Terlihat bahwa distribusi nilai cenderung unimodal dan mendekati distribusi normal, meskipun terdapat sedikit skewness ke kiri (ekor distribusi memanjang ke arah nilai yang lebih rendah). Sebagian besar siswa memperoleh nilai antara 60 hingga 80, dengan puncak frekuensi berada di sekitar nilai 65-70. Terdapat beberapa siswa dengan nilai yang sangat rendah (di bawah 40) dan juga beberapa siswa dengan nilai yang sangat tinggi (di atas 90), namun jumlahnya relatif lebih sedikit dibandingkan dengan kelompok nilai tengah.
+*   Histogram kedua menyajikan distribusi nilai ujian membaca (reading score). Distribusi nilai membaca tampak lebih mendekati distribusi normal dibandingkan dengan nilai matematika. Puncak frekuensi berada di sekitar nilai 70-80, dan sebagian besar siswa memperoleh nilai antara 60 hingga 90. Sebaran nilai membaca juga terlihat sedikit lebih lebar dibandingkan dengan nilai matematika, mengindikasikan variasi performa membaca antar siswa yang mungkin lebih besar. Jumlah siswa dengan nilai sangat rendah (di bawah 40) dan sangat tinggi (di atas 95) juga relatif sedikit.
+*   Histogram ketiga menggambarkan distribusi nilai ujian menulis (writing score). Distribusi nilai menulis juga terlihat unimodal dengan puncak frekuensi di sekitar nilai 65-75. Sebagian besar siswa memperoleh nilai antara 55 hingga 85. Distribusi nilai menulis menunjukkan skewness negatif yang lebih jelas dibandingkan dengan nilai matematika, dengan ekor distribusi yang lebih panjang ke arah nilai yang lebih rendah. Ini mengindikasikan bahwa terdapat lebih banyak siswa yang memperoleh nilai di bawah rata-rata dibandingkan dengan siswa yang memperoleh nilai jauh di atas rata-rata.
+
+**Exploratory Data Analysis - Multivariate Analysis (Categorical terhadap target)**
 
 Membuat Target
 """
@@ -184,23 +231,24 @@ for col in cat_features:
   sns.catplot(x=col, y="average_score", kind="bar", dodge=False, height = 4, aspect = 3,  data=df, palette="Set3")
   plt.title("Rata-rata 'skor' Relatif terhadap - {}".format(col))
 
-"""**Exploratory Data Analysis - Multivariate Analysis (Categorical terhadap target)**
+"""**Kesimpulan dan insight**
+
+Hasil analisis menunjukkan bahwa variabel kategorikal seperti pendidikan orangtua,jenis kelamin, jenis makan siang, tingkat pendidikan orangtua, partisipasi kursus, dan ras sebenarnya tidak memberikan dampak yang signifikan terhadap nilai rata-rata skor siswa. Hal ini ditunjukkan dengan nilai rata rata skor untuk tiap-tiap variabel yang hanya berada di kisaran 60-75.
+
+**Exploratory Data Analysis - Multivariate Analysis (Numerical terhadap target)**
 
 Visualisasi
 """
 
 sns.pairplot(df, diag_kind= 'kde')
 
-"""Matrix Korelasi"""
+"""**Kesimpulan dan insight**
 
-plt.figure(figsize=(10, 8))
-correlation_matrix = df[numerical_features].corr().round(2)
+Analisis pair plot ini dengan jelas menunjukkan hubungan linear positif yang sangat kuat antara nilai matematika, membaca, dan menulis dengan rata-rata skor siswa. Selain itu, terdapat korelasi yang tinggi di antara ketiga nilai ujian itu sendiri. Temuan ini menggarisbawahi pentingnya ketiga mata pelajaran ini dalam menentukan performa akademik keseluruhan siswa. Model prediksi rata-rata skor kemungkinan akan sangat akurat jika menggunakan ketiga nilai ujian ini sebagai fitur. Tidak terlihat adanya pola non-linear yang signifikan atau outlier ekstrem yang perlu perhatian khusus dari visualisasi ini.
 
-# Untuk menge-print nilai di dalam kotak, gunakan parameter anot=True
-sns.heatmap(data=correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5, )
-plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
+###Data Preparation
 
-"""###Data Preparation
+Karena dataset menunjukkan kondisi yang bersih tanpa adanya nilai yang hilang dan tidak terdapat outlier signifikan yang dapat berdampak negatif, maka tidak dilakukan pengurangan data.
 
 Feature engineering for target (y)
 
@@ -211,7 +259,10 @@ Feature engineering for target (y)
 
 df
 
-"""Encoding Fitur Kategori"""
+"""Membuat fitur baru berupa rata rata score yang didapatkan dari hasil math score + reading score + writing score dibagi 3, hal tersebut dilakukan mengingat belum adanya target pada dataset, sehingga perlu dilakukan feature engineering untuk menghasilkan fitur baru yang relevan.
+
+Encoding Fitur Kategori
+"""
 
 from sklearn.preprocessing import OneHotEncoder
 df = pd.concat([df, pd.get_dummies(df['gender'],prefix='gender')],axis=1)
@@ -223,7 +274,10 @@ df = pd.concat([df, pd.get_dummies(df['test preparation course'],prefix='test pr
 df.drop(['gender','race/ethnicity','parental level of education','lunch','test preparation course'],axis=1,inplace=True)
 df.head()
 
-"""Reduksi Dimensi dengan PCA"""
+"""Encoding fitur kategori: Feature encoding kategori seperti OneHotEncoder penting dilakukan karena sebagian besar algoritma machine learning tidak dapat menangani data kategorikal secara langsung. Mereka memerlukan input berupa angka, sedangkan beberapa fitur pada dataset tersebut berbentuk kategori, fitur fitur tersebut adalah gender, ras, level pendidikan orangtua, tipe makan siang, dan tes persiapan.
+
+Reduksi Dimensi dengan PCA
+"""
 
 sns.pairplot(df[['math score','reading score','writing score']], plot_kws={"s": 3});
 
@@ -243,6 +297,8 @@ pca.fit(df[['math score','reading score','writing score']])
 df['student performance'] = pca.transform(df.loc[:, ('math score','reading score','writing score')]).flatten()
 df.drop(['math score','reading score','writing score'], axis=1, inplace=True)
 
+"""Reduksi dimensi dengan PCA: Reduksi dimensi dengan PCA (Principal Component Analysis) diperlukan karena fitur math score, reading score, dan writing score menunjukkan korelasi tinggi satu sama lain, yang berarti terdapat redundansi informasi. PCA membantu menyederhanakan fitur-fitur tersebut menjadi beberapa komponen utama yang tetap mempertahankan sebagian besar informasi, sehingga dapat meningkatkan efisiensi model, mengurangi risiko overfitting, dan mempermudah visualisasi data. Selain itu, PCA juga membantu menghilangkan noise dan menjaga struktur data dalam dimensi yang lebih rendah. Oleh karena itu fitur math score, reading score, dan writing score dimasukkan kedalam proses PCA menjadi sebuah fitur yang bernama student performance."""
+
 df
 
 """**Train-Test-Split**"""
@@ -257,7 +313,10 @@ print(f'Total # of sample in whole dataset: {len(X)}')
 print(f'Total # of sample in train dataset: {len(X_train)}')
 print(f'Total # of sample in test dataset: {len(X_test)}')
 
-"""**Standarisasi**"""
+"""Train dan test split: Train-test split perlu dilakukan untuk mengevaluasi kinerja model secara objektif. Dengan membagi data menjadi data latih (train) dan data uji (test), kita dapat melatih model pada satu bagian data dan mengujinya pada data yang belum pernah dilihat sebelumnya. Hal ini penting untuk menilai kemampuan generalisasi model terhadap data baru dan mencegah overfitting, yaitu kondisi di mana model terlalu baik dalam menghafal data latih namun buruk dalam memprediksi data baru. Dalam kasus ini, data dibagi 90% untuk pelatihan dan 10% untuk pengujian, memberikan cukup data untuk pembelajaran sambil tetap menyisakan data yang representatif untuk evaluasi.
+
+**Standarisasi**
+"""
 
 from sklearn.preprocessing import StandardScaler
 
@@ -269,7 +328,9 @@ X_train[numerical_features].head()
 
 X_train[numerical_features].describe().round(4)
 
-"""###Model Development
+"""Standarisasi: hal tersebut perlu dilakukan untuk menyamakan skala fitur numerik agar model machine learning dapat bekerja secara optimal. Fitur seperti student performance mungkin memiliki rentang nilai yang berbeda dibanding fitur lain, dan ini bisa menyebabkan model lebih condong atau berat sebelah terhadap fitur dengan nilai besar. Dengan standarisasi menggunakan StandardScaler, data diubah agar memiliki rata-rata 0 dan standar deviasi 1, sehingga semua fitur berada dalam skala yang seimbang. Ini sangat penting terutama untuk algoritma yang sensitif terhadap skala data seperti KNN, SVM, dan regresi linier. Hasil standarisasi menunjukkan bahwa data telah terpusat di sekitar nol dengan penyebaran standar yang seragam, memastikan proses pelatihan model menjadi lebih stabil dan akurat.
+
+###Model Development
 
 Inisialisasi Model dan Evaluasi
 """
@@ -335,3 +396,8 @@ for name, model in model_dict.items():
     pred_dict['prediksi_'+name] = model.predict(prediksi).round(1)
 
 pd.DataFrame(pred_dict)
+
+"""**Kesimpulan**
+
+Secara keseluruhan, model Random Forest menunjukkan kinerja prediksi yang paling akurat dan kemampuan generalisasi yang terbaik berdasarkan metrik MSE dan contoh prediksi individu. Model KNN dan Boosting juga memberikan hasil yang cukup baik, namun tidak sebaik Random Forest. Untuk tugas prediksi ini, Random Forest akan menjadi pilihan model yang paling direkomendasikan berdasarkan hasil evaluasi ini. Penting untuk diingat bahwa kesimpulan ini didasarkan pada metrik MSE dan beberapa contoh prediksi.
+"""
