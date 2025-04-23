@@ -43,24 +43,28 @@ Pendidikan adalah pilar utama pembangunan sumber daya manusia. Namun, tantangan 
 - Menghitung Mean Squared Error masing-masing algoritma pada data train dan test untuk mencari model yang terbaik
     
 ## Data Understanding
-Dataset yang digunakan dalam proyek ini adalah Student Performance Prediction Dataset yang bersumber dari platform [kaggle](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data). Dataset ini berisi informasi mengenai performa siswa sekolah menengah atas di Amerika Serikat dalam tiga mata pelajaran utama: matematika, membaca, dan menulis. Selain skor akademik, dataset ini juga mencakup berbagai fitur demografis seperti jenis kelamin, latar belakang etnis, tingkat pendidikan orang tua, status subsidi makan siang, dan apakah siswa telah mengikuti kursus persiapan ujian atau tidak.
 
-### Variabel-variabel pada dataset adalah sebagai berikut:
-- gender: Merupakan jenis kelamin siswa, dengan nilai male (laki-laki) atau female (perempuan).
+Dataset yang digunakan dalam proyek ini adalah Student Performance Prediction Dataset yang bersumber dari platform [Kaggle](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data).
 
-- race/ethnicity: Menunjukkan latar belakang ras atau etnis siswa. Kategori ini dibagi menjadi lima kelompok yang mengacu pada klasifikasi di AS (Group A sampai Group E).
+**Jumlah Data:** Dataset ini terdiri dari 1000 baris (sampel siswa) dan 8 kolom (fitur).
 
-- parental level of education: Menyatakan tingkat pendidikan tertinggi yang dicapai oleh orang tua atau wali siswa. Nilainya meliputi: some high school, high school, some college, associate’s degree, bachelor’s degree, dan master’s degree.
+**Kondisi Data:** Berdasarkan analisis awal, dataset ini memiliki kondisi sebagai berikut:
+- **Missing Value:** Tidak terdapat nilai yang hilang (*missing value*) dalam dataset.
+- **Outlier:** Berdasarkan visualisasi distribusi fitur numerik, tidak terdeteksi adanya *outlier* ekstrem yang secara signifikan dapat mengganggu analisis atau pemodelan. Beberapa nilai ekstrem rendah pada skor matematika mungkin ada, namun dianggap sebagai variasi alami dalam performa siswa.
 
-- lunch: Menunjukkan apakah siswa menerima makan siang secara gratis atau dengan harga subsidi (free/reduced) atau membayar penuh (standard).
+**Tautan Sumber Data:** [https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data)
 
-- test preparation course: Menunjukkan apakah siswa telah menyelesaikan kursus persiapan ujian sebelum mengikuti tes standar. Nilainya adalah completed atau none.
+**Uraian Fitur:**
+- `gender`: Merupakan jenis kelamin siswa, dengan nilai `male` (laki-laki) atau `female` (perempuan).
+- `race/ethnicity`: Menunjukkan latar belakang ras atau etnis siswa. Kategori ini dibagi menjadi lima kelompok: `group A`, `group B`, `group C`, `group D`, dan `group E`.
+- `parental level of education`: Menyatakan tingkat pendidikan tertinggi yang dicapai oleh orang tua atau wali siswa. Nilainya meliputi: `some high school`, `high school`, `some college`, `associate's degree`, `bachelor's degree`, dan `master's degree`.
+- `lunch`: Menunjukkan status subsidi makan siang siswa. Nilainya adalah `standard` (membayar penuh) atau `free/reduced` (gratis atau subsidi).
+- `test preparation course`: Menunjukkan apakah siswa telah menyelesaikan kursus persiapan ujian. Nilainya adalah `completed` atau `none`.
+- `math score`: Skor siswa dalam ujian standar mata pelajaran matematika. Nilainya berupa bilangan bulat dari 0 hingga 100.
+- `reading score`: Skor siswa dalam ujian standar mata pelajaran membaca. Nilainya berupa bilangan bulat dari 0 hingga 100.
+- `writing score`: Skor siswa dalam ujian standar mata pelajaran menulis. Nilainya berupa bilangan bulat dari 0 hingga 100.
 
-- math score: Skor siswa dalam ujian standar mata pelajaran matematika. Nilainya berupa angka dari 0 hingga 100.
 
-- reading score: Skor siswa dalam ujian standar mata pelajaran membaca. Nilainya berupa angka dari 0 hingga 100.
-
-- writing score: Skor siswa dalam ujian standar mata pelajaran menulis. Nilainya berupa angka dari 0 hingga 100.
 
 ### Exploratory data analysis - Univariate Analysis
 ### Fitur-fitur Kategori
@@ -111,10 +115,25 @@ Sebanyak 66.0% siswa mendapatkan makan siang standar, sedangkan 34.0% menerima m
 
 Sebanyak 65.6% siswa tidak mengikuti kursus persiapan ujian, sedangkan 34.4% mengikuti.
 
+**Kesimpulan**
+
+Berdasarkan hasil eksplorasi data (EDA) terhadap variabel kategorikal, dapat disimpulkan bahwa distribusi siswa berdasarkan gender cukup seimbang, dengan proporsi laki-laki sebesar 50.8% dan perempuan 49.2%. Dari sisi latar belakang etnis, mayoritas siswa berasal dari group C (32.3%), diikuti oleh group D (25.7%) dan group B (19.8%), sementara group A dan E masing-masing hanya menyumbang 7.9% dan 14.3%. Latar belakang pendidikan orang tua menunjukkan bahwa sebagian besar berasal dari keluarga dengan tingkat pendidikan menengah, seperti “some college” (22.4%) dan “high school” (21.5%). Hanya sedikit orang tua yang memiliki gelar magister (7.5%), yang menunjukkan bahwa sebagian besar siswa mungkin tidak mendapatkan dukungan akademik dari orang tua dengan pendidikan tinggi.
+
+Dari sisi ekonomi, sebanyak 66.0% siswa mendapatkan makan siang standar, sementara 34.0% menerima makan siang gratis atau bersubsidi, yang sering kali menjadi indikator kondisi sosial-ekonomi yang lebih rendah. Selain itu, hanya 34.4% siswa yang telah menyelesaikan kursus persiapan ujian, sedangkan 65.6% lainnya tidak mengikuti kursus tersebut. Hal ini menunjukkan bahwa sebagian besar siswa mungkin menghadapi keterbatasan dalam akses terhadap persiapan akademik tambahan.
+
+Secara keseluruhan, hasil ini memberikan gambaran bahwa faktor sosial-ekonomi, latar belakang pendidikan orang tua, serta akses terhadap fasilitas belajar tambahan dapat menjadi faktor penting yang memengaruhi performa akademik siswa. Analisis lanjutan sangat dianjurkan untuk melihat bagaimana variabel-variabel ini berkorelasi dengan hasil tes akademik seperti nilai matematika, membaca, dan menulis, guna memperoleh pemahaman yang lebih mendalam dan komprehensif.
+
 ### Fitur-fitur Numerikal
 ![EDA Unvariate](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Unvariate%20Numerical.png)
 
 Berdasarkan hasil eksplorasi data univariat terhadap fitur numerik yaitu math score, reading score, dan writing score, dapat disimpulkan bahwa distribusi ketiga skor tersebut cenderung mengikuti pola distribusi normal, meskipun terlihat sedikit condong ke kiri (left-skewed), khususnya pada skor matematika dan menulis. Sebagian besar nilai berada dalam kisaran 60 hingga 80, yang menunjukkan bahwa mayoritas siswa memiliki performa akademik yang cukup baik. Skor membaca menunjukkan distribusi yang paling simetris, serta memiliki konsentrasi nilai tinggi lebih banyak dibanding dua skor lainnya, mengindikasikan bahwa kemampuan membaca siswa secara umum lebih unggul. Sementara itu, skor matematika memiliki beberapa nilai rendah yang secara realita tidak dapat dianggap sebagai outlier, namun tidak terlalu signifikan. Secara keseluruhan, ketiga skor ini menunjukkan distribusi yang baik dan stabil.
+
+**Kesimpulan**
+
+*   Histogram pertama menampilkan distribusi nilai ujian matematika (math score). Terlihat bahwa distribusi nilai cenderung unimodal dan mendekati distribusi normal, meskipun terdapat sedikit skewness ke kiri (ekor distribusi memanjang ke arah nilai yang lebih rendah). Sebagian besar siswa memperoleh nilai antara 60 hingga 80, dengan puncak frekuensi berada di sekitar nilai 65-70. Terdapat beberapa siswa dengan nilai yang sangat rendah (di bawah 40) dan juga beberapa siswa dengan nilai yang sangat tinggi (di atas 90), namun jumlahnya relatif lebih sedikit dibandingkan dengan kelompok nilai tengah.
+*   Histogram kedua menyajikan distribusi nilai ujian membaca (reading score). Distribusi nilai membaca tampak lebih mendekati distribusi normal dibandingkan dengan nilai matematika. Puncak frekuensi berada di sekitar nilai 70-80, dan sebagian besar siswa memperoleh nilai antara 60 hingga 90. Sebaran nilai membaca juga terlihat sedikit lebih lebar dibandingkan dengan nilai matematika, mengindikasikan variasi performa membaca antar siswa yang mungkin lebih besar. Jumlah siswa dengan nilai sangat rendah (di bawah 40) dan sangat tinggi (di atas 95) juga relatif sedikit.
+*   Histogram ketiga menggambarkan distribusi nilai ujian menulis (writing score). Distribusi nilai menulis juga terlihat unimodal dengan puncak frekuensi di sekitar nilai 65-75. Sebagian besar siswa memperoleh nilai antara 55 hingga 85. Distribusi nilai menulis menunjukkan skewness negatif yang lebih jelas dibandingkan dengan nilai matematika, dengan ekor distribusi yang lebih panjang ke arah nilai yang lebih rendah. Ini mengindikasikan bahwa terdapat lebih banyak siswa yang memperoleh nilai di bawah rata-rata dibandingkan dengan siswa yang memperoleh nilai jauh di atas rata-rata.
+
 
 ### Exploratory data analysis - Multivariate Analysis
 ### Fitur-fitur Kategorical Terhadap Target
@@ -133,11 +152,22 @@ Siswa yang menyelesaikan kursus persiapan tes memiliki skor rata-rata lebih ting
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Ras.png)
 Kelompok E memiliki skor rata-rata tertinggi (±76), sementara kelompok lain berkisar antara 67 hingga 71. Perbedaan ini menunjukkan adanya variasi, namun tidak konsisten meningkat atau menurun antar kelompok, sehingga fitur ini memiliki pengaruh yang rendah terhadap skor.
 
+**Kesimpulan**
+
+Hasil analisis menunjukkan bahwa variabel kategorikal seperti pendidikan orangtua,jenis kelamin, jenis makan siang, tingkat pendidikan orangtua, partisipasi kursus, dan ras sebenarnya tidak memberikan dampak yang signifikan terhadap nilai rata-rata skor siswa. Hal ini ditunjukkan dengan nilai rata rata skor untuk tiap-tiap variabel yang hanya berada di kisaran 60-75.
+
 ### Fitur-fitur Numerical Terhadap Target
 ![EDA Multivariate Numerical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Numerical.png)
 Fitur numerik menunjukkan hubungan linear yang kuat satu sama lain, dengan korelasi tertinggi antara reading score dan writing score. Average score sangat bergantung secara proporsional pada ketiga skor asli, dan hubungan linear ini memvalidasi penggunaannya sebagai metrik gabungan. 
 
+**Kesimpulan**
+
+Analisis pair plot ini dengan jelas menunjukkan hubungan linear positif yang sangat kuat antara nilai matematika, membaca, dan menulis dengan rata-rata skor siswa. Selain itu, terdapat korelasi yang tinggi di antara ketiga nilai ujian itu sendiri. Temuan ini menggarisbawahi pentingnya ketiga mata pelajaran ini dalam menentukan performa akademik keseluruhan siswa. Model prediksi rata-rata skor kemungkinan akan sangat akurat jika menggunakan ketiga nilai ujian ini sebagai fitur. Tidak terlihat adanya pola non-linear yang signifikan atau outlier ekstrem yang perlu perhatian khusus dari visualisasi ini.
+
 ## Data Preparation
+
+- Karena dataset menunjukkan kondisi yang bersih tanpa adanya nilai yang hilang dan tidak terdapat outlier signifikan yang dapat berdampak negatif, maka tidak dilakukan pengurangan data.
+
 - Feature Engineering: Membuat fitur baru berupa rata rata score yang didapatkan dari hasil math score + reading score + writing score dibagi 3, hal tersebut dilakukan mengingat belum adanya target pada dataset, sehingga perlu dilakukan feature engineering untuk menghasilkan fitur baru yang relevan.
 
 - Encoding fitur kategori: Feature encoding kategori seperti OneHotEncoder penting dilakukan karena sebagian besar algoritma machine learning tidak dapat menangani data kategorikal secara langsung. Mereka memerlukan input berupa angka, sedangkan beberapa fitur pada dataset tersebut berbentuk kategori, fitur fitur tersebut adalah gender, ras, level pendidikan orangtua, tipe makan siang, dan tes persiapan.
@@ -151,17 +181,19 @@ Fitur numerik menunjukkan hubungan linear yang kuat satu sama lain, dengan korel
 ## Modeling
 Pada tahap ini dilakukan pengembangan model machine learning untuk memprediksi skor rata-rata siswa berdasarkan fitur-fitur input yang telah diproses sebelumnya. Tiga algoritma regresi digunakan, yaitu K-Nearest Neighbors (KNN), Random Forest Regressor, dan AdaBoost Regressor.
 
-**K-Nearest Neighbors (KNN)**
+- **K-Nearest Neighbors (KNN)**
+  
+K-Nearest Neighbors (KNN) adalah algoritma non-parametrik yang bekerja dengan cara membandingkan jarak antara data uji dengan seluruh data latih, lalu memilih k tetangga terdekat untuk melakukan prediksi. Nilai prediksi untuk regresi ditentukan dari rata-rata nilai target dari k tetangga terdekat tersebut. Model KNN digunakan dengan parameter n_neighbors=10 dan untuk parameter lainnya bernilai default. Kelebihan KNN adalah sederhana dan tidak membutuhkan proses pelatihan yang kompleks. Namun, KNN sangat sensitif terhadap skala fitur dan kurang efisien pada dataset besar. Model ini menghasilkan MSE (mean squared error) sebesar 0.0137 (train) dan 0.0113 (test).
 
-Model KNN digunakan dengan parameter n_neighbors=10. Kelebihan KNN adalah sederhana dan tidak membutuhkan proses pelatihan yang kompleks. Namun, KNN sangat sensitif terhadap skala fitur dan kurang efisien pada dataset besar. Model ini menghasilkan MSE (mean squared error) sebesar 0.0137 (train) dan 0.0113 (test).
+- **Random Forest**
 
-**Random Forest**
+Random Forest merupakan algoritma ensemble learning yang menggabungkan banyak pohon keputusan (decision trees) untuk meningkatkan akurasi prediksi. Setiap pohon dilatih pada subset data yang dipilih secara acak (bootstrap), dan hasil prediksi akhir diambil rata-rata dari semua pohon. Random Forest digunakan dengan n_estimators=50, max_depth=16, random_state=55, n_jobs=-1 serta parameter lain yang bernilai default. Algoritma ini mampu menangani data dengan fitur non-linear dan tidak sensitif terhadap skala fitur. Namun random forest memerlukan sumber daya komputasi besar dan kurang interpretatif. Hasil evaluasi menunjukkan performa terbaik dibanding model lain, dengan MSE sangat kecil yaitu 0.000009 (train) dan 0.000008 (test). Ini menunjukkan model sangat akurat dalam menangkap pola data.
 
-Random Forest digunakan dengan n_estimators=50 dan max_depth=16. Algoritma ini kuat terhadap overfitting dan dapat menangani data nonlinear dengan baik. Hasil evaluasi menunjukkan performa terbaik dibanding model lain, dengan MSE sangat kecil yaitu 0.000009 (train) dan 0.000008 (test). Ini menunjukkan model sangat akurat dalam menangkap pola data.
+- **AdaBoost Regressor**
 
-**AdaBoost Regressor**
+AdaBoost (Adaptive Boosting) bekerja dengan membentuk model ensemble dari sejumlah weak learners, biasanya decision tree berukuran kecil. Setiap model baru dibangun dengan fokus pada data yang salah diklasifikasikan oleh model sebelumnya. Hasil akhir prediksi merupakan kombinasi tertimbang dari seluruh model. AdaBoost digunakan dengan learning_rate=0.05 dan random_state=55 serta parameter lainnya yang bernilai default. Algoritma ini meningkatkan akurasi model dengan menggabungkan banyak prediktor sederhana, akan tetapi rentan terhadap data outlier dan noise. Hasil yang diperoleh cukup baik, dengan MSE 0.0024 (train) dan 0.0029 (test), namun masih kalah dari Random Forest.
 
-AdaBoost digunakan dengan learning_rate=0.05. Algoritma ini bekerja dengan menggabungkan beberapa model lemah (weak learners) secara iteratif untuk meningkatkan performa prediksi. Hasil yang diperoleh cukup baik, dengan MSE 0.0024 (train) dan 0.0029 (test), namun masih kalah dari Random Forest.
+**Kesimpulan**
 
 Berdasarkan hasil evaluasi MSE pada data latih dan uji, Random Forest dipilih sebagai model terbaik karena menghasilkan error paling rendah di antara semua model yang diuji. Selain itu, model ini juga lebih stabil dan mampu menangani kompleksitas data tanpa mengalami overfitting.
 
