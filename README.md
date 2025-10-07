@@ -1,18 +1,18 @@
-# Laporan Proyek Machine Learning - Muh. Arsan Akbar
+# Machine Learning Project Report - Muh. Arsan Akbar
 
-## Domain Proyek
+## Project Domain
 
-Pendidikan merupakan fondasi utama dalam membentuk sumber daya manusia yang kompeten dan berdaya saing tinggi, terutama dalam menghadapi tantangan globalisasi dan kemajuan teknologi. Kualitas pendidikan yang baik menjadi kunci dalam mencetak individu yang produktif dan mampu memberikan kontribusi positif terhadap masyarakat. Namun demikian, sistem pendidikan di berbagai negara, termasuk Indonesia, masih menghadapi tantangan besar, khususnya terkait dengan tingginya angka putus sekolah dan rendahnya tingkat retensi siswa (Tjandra et al., 2022). Permasalahan ini tidak hanya menghambat perkembangan sektor pendidikan, tetapi juga berdampak jangka panjang terhadap masa depan generasi muda.
+Education is a fundamental pillar in developing competent and highly competitive human resources, especially in facing the challenges of globalization and technological advancement. Quality education is key to producing productive individuals capable of making positive contributions to society. However, education systems in various countries, including Indonesia, still face major challenges, particularly regarding high dropout rates and low student retention rates (Tjandra et al., 2022). This issue not only hinders the development of the education sector but also has long-term impacts on the future of the younger generation.
 
-Salah satu penyebab utama dari tingginya angka putus sekolah adalah rendahnya kinerja akademik siswa. Ketika siswa mengalami kesulitan dalam memahami materi pelajaran dan tidak mencapai hasil belajar yang memadai, mereka lebih rentan untuk kehilangan motivasi dan akhirnya memilih keluar dari sistem pendidikan formal (Gusnina et al., 2022). Dalam konteks ini, diperlukan strategi preventif yang tepat untuk mengidentifikasi siswa yang berisiko dan memberikan intervensi secara dini (Ismanto et al., 2022).
+One of the main causes of high dropout rates is low student academic performance. When students have difficulty understanding subject matter and do not achieve adequate learning outcomes, they are more vulnerable to losing motivation and eventually choosing to leave the formal education system (Gusnina et al., 2022). In this context, appropriate preventive strategies are needed to identify at-risk students and provide early intervention (Ismanto et al., 2022).
 
-Penerapan teknologi seperti machine learning dalam dunia pendidikan memberikan peluang besar untuk mengatasi permasalahan tersebut. Salah satunya adalah dengan membangun sistem prediksi kinerja akademik siswa berdasarkan data historis dan karakteristik individual. Kinerja akademik sendiri merupakan indikator yang mencerminkan sejauh mana siswa berhasil mencapai tujuan pembelajaran dalam bidang tertentu. Dengan melakukan prediksi terhadap performa akademik, pendidik dapat memberikan bimbingan, sumber daya tambahan, serta intervensi yang disesuaikan dengan kebutuhan masing-masing siswa (Masangu et al., 2020).
+The application of technologies such as machine learning in education provides great opportunities to address these problems. One approach is to build a student academic performance prediction system based on historical data and individual characteristics. Academic performance itself is an indicator that reflects the extent to which students successfully achieve learning objectives in a particular field. By predicting academic performance, educators can provide guidance, additional resources, and interventions tailored to the needs of each student (Masangu et al., 2020).
 
-Lebih jauh lagi, kinerja akademik yang baik tidak hanya menentukan kesuksesan siswa di lingkungan sekolah, tetapi juga menjadi faktor penting dalam kesiapan memasuki dunia kerja. Siswa yang unggul secara akademik umumnya memiliki peluang yang lebih besar untuk memperoleh pekerjaan berkualitas dan memiliki jenjang karier yang lebih baik (Adane et al., 2023). Oleh karena itu, meningkatkan kinerja akademik siswa memiliki dampak luas, baik dari sisi pendidikan maupun kehidupan profesional mereka setelah lulus.
+Furthermore, good academic performance not only determines student success in the school environment but also becomes an important factor in readiness to enter the workforce. Students who excel academically generally have greater opportunities to obtain quality jobs and have better career paths (Adane et al., 2023). Therefore, improving student academic performance has broad impacts, both from the education side and their professional lives after graduation.
 
-Berdasarkan urgensi tersebut, proyek ini akan mengembangkan sistem prediksi kinerja akademik siswa menggunakan pendekatan machine learning, dengan memanfaatkan fitur-fitur seperti skor matematika, membaca, menulis, serta variabel sosiodemografis seperti gender, etnis, dan latar belakang pendidikan orang tua. Melalui pendekatan ini, diharapkan sekolah dan lembaga pendidikan dapat secara proaktif mendeteksi potensi permasalahan akademik dan menyediakan solusi berbasis data yang lebih efektif.
+Based on this urgency, this project will develop a student academic performance prediction system using a machine learning approach, leveraging features such as math, reading, and writing scores, as well as sociodemographic variables such as gender, ethnicity, and parental education background. Through this approach, it is hoped that schools and educational institutions can proactively detect potential academic problems and provide more effective data-based solutions.
 
-Referensi:
+References:
 
 [Tjandra, E., Kusumawardani, S. S., & Ferdiana, R. (2022). Student performance prediction in higher education: A comprehensive review. AIP Conference Proceedings. https://doi.org/10.1063/5.0080187](https://doi.org/10.1063/5.0080187)
 
@@ -27,56 +27,56 @@ https://doi.org/10.9734/jamcs/2023/v38i51762)
 
 ## Business Understanding
 
-Pendidikan adalah pilar utama pembangunan sumber daya manusia. Namun, tantangan serius masih dihadapi, terutama terkait dengan rendahnya kinerja akademik siswa yang dapat memicu putus sekolah. Oleh karena itu, pemanfaatan pendekatan prediktif berbasis machine learning dalam dunia pendidikan menjadi langkah yang strategis untuk mendeteksi potensi permasalahan akademik sejak dini.
+Education is the main pillar of human resource development. However, serious challenges are still faced, especially regarding low student academic performance which can trigger school dropouts. Therefore, the use of machine learning-based predictive approaches in education becomes a strategic step to detect potential academic problems early.
 
 ### Problem Statements
-- Bagaimana memprediksi kinerja akademik siswa secara akurat berdasarkan data karakteristik tertentu?
-- Fitur apa saja yang paling signifikan dan berpengaruh dalam menentukan performa akademik siswa?
+- How to accurately predict student academic performance based on certain characteristic data?
+- What features are most significant and influential in determining student academic performance?
 
 ### Goals
-- Membangun model prediksi machine learning yang mampu memperkirakan kinerja akademik siswa secara akurat berdasarkan fitur-fitur yang tersedia.
-- Mengidentifikasi fitur-fitur yang paling berkorelasi dan berkontribusi signifikan terhadap keberhasilan akademik siswa.
+- Build a machine learning prediction model capable of accurately estimating student academic performance based on available features.
+- Identify features that are most correlated and contribute significantly to student academic success.
 
 ### Solution statements
-- Menerapkan algoritma KNeighborsRegressor, RandomForestRegressor dan AdaBoostRegressor untuk membuat model prediksi performa siswa
-- Membuat fitur baru dari fitur yang ada (feature engineering), yaitu menggabungkan skor rata-rata dari tiga indikator penilaian utama untuk membentuk sebuah label yang baru. Fitur tersebut nantinya akan digunakan sebagai acuan untuk menilai fitur yang paling signifikan terhadap keberhasilan siswa.
-- Menghitung Mean Squared Error masing-masing algoritma pada data train dan test untuk mencari model yang terbaik
+- Apply KNeighborsRegressor, RandomForestRegressor and AdaBoostRegressor algorithms to create student performance prediction models
+- Create new features from existing features (feature engineering), namely combining average scores from three main assessment indicators to form a new label. This feature will later be used as a reference to assess the most significant features for student success.
+- Calculate Mean Squared Error for each algorithm on train and test data to find the best model
     
 ## Data Understanding
 
-Dataset yang digunakan dalam proyek ini adalah Student Performance Prediction Dataset yang bersumber dari platform [Kaggle](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data).
+The dataset used in this project is the Student Performance Prediction Dataset sourced from the [Kaggle](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data) platform.
 
-**Jumlah Data:** Dataset ini terdiri dari 1000 baris (sampel siswa) dan 8 kolom (fitur).
+**Data Volume:** This dataset consists of 1000 rows (student samples) and 8 columns (features).
 
-**Kondisi Data:** Berdasarkan analisis awal, dataset ini memiliki kondisi sebagai berikut:
-- **Missing Value:** Tidak terdapat nilai yang hilang (*missing value*) dalam dataset.
-- **Outlier:** Berdasarkan visualisasi distribusi fitur numerik, tidak terdeteksi adanya *outlier* ekstrem yang secara signifikan dapat mengganggu analisis atau pemodelan. Beberapa nilai ekstrem rendah pada skor matematika mungkin ada, namun dianggap sebagai variasi alami dalam performa siswa.
+**Data Condition:** Based on initial analysis, this dataset has the following conditions:
+- **Missing Values:** There are no missing values in the dataset.
+- **Outliers:** Based on visualization of numerical feature distributions, no extreme outliers were detected that could significantly disrupt analysis or modeling. Some extremely low values in math scores may exist, but are considered natural variations in student performance.
 
-**Tautan Sumber Data:** [https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data)
+**Data Source Link:** [https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data](https://www.kaggle.com/datasets/rkiattisak/student-performance-in-mathematics/data)
 
-**Uraian Fitur:**
-- `gender`: Merupakan jenis kelamin siswa, dengan nilai `male` (laki-laki) atau `female` (perempuan).
-- `race/ethnicity`: Menunjukkan latar belakang ras atau etnis siswa. Kategori ini dibagi menjadi lima kelompok: `group A`, `group B`, `group C`, `group D`, dan `group E`.
-- `parental level of education`: Menyatakan tingkat pendidikan tertinggi yang dicapai oleh orang tua atau wali siswa. Nilainya meliputi: `some high school`, `high school`, `some college`, `associate's degree`, `bachelor's degree`, dan `master's degree`.
-- `lunch`: Menunjukkan status subsidi makan siang siswa. Nilainya adalah `standard` (membayar penuh) atau `free/reduced` (gratis atau subsidi).
-- `test preparation course`: Menunjukkan apakah siswa telah menyelesaikan kursus persiapan ujian. Nilainya adalah `completed` atau `none`.
-- `math score`: Skor siswa dalam ujian standar mata pelajaran matematika. Nilainya berupa bilangan bulat dari 0 hingga 100.
-- `reading score`: Skor siswa dalam ujian standar mata pelajaran membaca. Nilainya berupa bilangan bulat dari 0 hingga 100.
-- `writing score`: Skor siswa dalam ujian standar mata pelajaran menulis. Nilainya berupa bilangan bulat dari 0 hingga 100.
+**Feature Descriptions:**
+- `gender`: Represents the student's gender, with values `male` or `female`.
+- `race/ethnicity`: Shows the student's racial or ethnic background. This category is divided into five groups: `group A`, `group B`, `group C`, `group D`, and `group E`.
+- `parental level of education`: Indicates the highest level of education achieved by the student's parent or guardian. Values include: `some high school`, `high school`, `some college`, `associate's degree`, `bachelor's degree`, and `master's degree`.
+- `lunch`: Indicates the student's lunch subsidy status. Values are `standard` (full payment) or `free/reduced` (free or subsidized).
+- `test preparation course`: Indicates whether the student has completed a test preparation course. Values are `completed` or `none`.
+- `math score`: Student's score in the standard mathematics subject exam. Values are integers from 0 to 100.
+- `reading score`: Student's score in the standard reading subject exam. Values are integers from 0 to 100.
+- `writing score`: Student's score in the standard writing subject exam. Values are integers from 0 to 100.
 
 
 
 ### Exploratory data analysis - Univariate Analysis
-### Fitur-fitur Kategori
-### Distribusi Gender
+### Categorical Features
+### Gender Distribution
 | Gender | Count | Percent |
 |--------|-------|---------|
 | Male   | 508   | 50.8%   |
 | Female | 492   | 49.2%   |
 
-Jumlah siswa laki-laki (50.8%) dan perempuan (49.2%) hampir seimbang. Hal ini menunjukkan tidak adanya bias signifikan dalam representasi gender
+The number of male students (50.8%) and female students (49.2%) is nearly balanced. This shows no significant bias in gender representation.
 
-### Distribusi Race/Ethnicity
+### Race/Ethnicity Distribution
 | Race/Ethnicity | Count | Percent |
 |----------------|-------|---------|
 | Group C        | 323   | 32.3%   |
@@ -85,9 +85,9 @@ Jumlah siswa laki-laki (50.8%) dan perempuan (49.2%) hampir seimbang. Hal ini me
 | Group E        | 143   | 14.3%   |
 | Group A        | 79    | 7.9%    |
 
-Sebagian besar siswa berasal dari Group C (32.3%), diikuti oleh Group D (25.7%) dan Group B (19.8%). Group A dan E relatif lebih sedikit.
+Most students come from Group C (32.3%), followed by Group D (25.7%) and Group B (19.8%). Group A and E are relatively fewer.
 
-### Distribusi Parental Level of Education
+### Parental Level of Education Distribution
 | Parental Level of Education | Count | Percent |
 |-----------------------------|-------|---------|
 | Some college                | 224   | 22.4%   |
@@ -97,119 +97,119 @@ Sebagian besar siswa berasal dari Group C (32.3%), diikuti oleh Group D (25.7%) 
 | Bachelor's degree           | 105   | 10.5%   |
 | Master's degree             | 75    | 7.5%    |
 
-Mayoritas orang tua siswa memiliki tingkat pendidikan “some college” (22.4%), diikuti oleh “high school” (21.5%) dan “associate's degree” (20.4%). Sementara itu, hanya sebagian kecil orang tua yang memiliki gelar “master’s degree” (7.5%). 
+The majority of student parents have an education level of "some college" (22.4%), followed by "high school" (21.5%) and "associate's degree" (20.4%). Meanwhile, only a small portion of parents have a "master's degree" (7.5%).
 
-### Distribusi Lunch
+### Lunch Distribution
 | Lunch Type     | Count | Percent |
 |----------------|-------|---------|
 | Standard       | 660   | 66.0%   |
 | Free/Reduced   | 340   | 34.0%   |
 
-Sebanyak 66.0% siswa mendapatkan makan siang standar, sedangkan 34.0% menerima makan siang gratis atau diskon.
+66.0% of students receive standard lunch, while 34.0% receive free or discounted lunch.
 
-### Distribusi Test Preparation Course
+### Test Preparation Course Distribution
 | Test Preparation Course | Count | Percent |
 |-------------------------|-------|---------|
 | None                    | 656   | 65.6%   |
 | Completed               | 344   | 34.4%   |
 
-Sebanyak 65.6% siswa tidak mengikuti kursus persiapan ujian, sedangkan 34.4% mengikuti.
+65.6% of students did not take a test preparation course, while 34.4% did.
 
-**Kesimpulan**
+**Conclusion**
 
-Berdasarkan hasil eksplorasi data (EDA) terhadap variabel kategorikal, dapat disimpulkan bahwa distribusi siswa berdasarkan gender cukup seimbang, dengan proporsi laki-laki sebesar 50.8% dan perempuan 49.2%. Dari sisi latar belakang etnis, mayoritas siswa berasal dari group C (32.3%), diikuti oleh group D (25.7%) dan group B (19.8%), sementara group A dan E masing-masing hanya menyumbang 7.9% dan 14.3%. Latar belakang pendidikan orang tua menunjukkan bahwa sebagian besar berasal dari keluarga dengan tingkat pendidikan menengah, seperti “some college” (22.4%) dan “high school” (21.5%). Hanya sedikit orang tua yang memiliki gelar magister (7.5%), yang menunjukkan bahwa sebagian besar siswa mungkin tidak mendapatkan dukungan akademik dari orang tua dengan pendidikan tinggi.
+Based on the results of exploratory data analysis (EDA) on categorical variables, it can be concluded that the distribution of students by gender is quite balanced, with a proportion of 50.8% male and 49.2% female. From an ethnic background perspective, the majority of students come from group C (32.3%), followed by group D (25.7%) and group B (19.8%), while groups A and E only contribute 7.9% and 14.3% respectively. Parental education background shows that most come from families with a middle education level, such as "some college" (22.4%) and "high school" (21.5%). Only a few parents have a master's degree (7.5%), indicating that most students may not receive academic support from highly educated parents.
 
-Dari sisi ekonomi, sebanyak 66.0% siswa mendapatkan makan siang standar, sementara 34.0% menerima makan siang gratis atau bersubsidi, yang sering kali menjadi indikator kondisi sosial-ekonomi yang lebih rendah. Selain itu, hanya 34.4% siswa yang telah menyelesaikan kursus persiapan ujian, sedangkan 65.6% lainnya tidak mengikuti kursus tersebut. Hal ini menunjukkan bahwa sebagian besar siswa mungkin menghadapi keterbatasan dalam akses terhadap persiapan akademik tambahan.
+From an economic perspective, 66.0% of students receive standard lunch, while 34.0% receive free or subsidized lunch, which often serves as an indicator of lower socioeconomic conditions. In addition, only 34.4% of students have completed a test preparation course, while 65.6% have not taken such courses. This shows that most students may face limitations in access to additional academic preparation.
 
-Secara keseluruhan, hasil ini memberikan gambaran bahwa faktor sosial-ekonomi, latar belakang pendidikan orang tua, serta akses terhadap fasilitas belajar tambahan dapat menjadi faktor penting yang memengaruhi performa akademik siswa. Analisis lanjutan sangat dianjurkan untuk melihat bagaimana variabel-variabel ini berkorelasi dengan hasil tes akademik seperti nilai matematika, membaca, dan menulis, guna memperoleh pemahaman yang lebih mendalam dan komprehensif.
+Overall, these results provide an overview that socioeconomic factors, parental education background, and access to additional learning facilities can be important factors affecting student academic performance. Further analysis is highly recommended to see how these variables correlate with academic test results such as math, reading, and writing scores, in order to gain a deeper and more comprehensive understanding.
 
-### Fitur-fitur Numerikal
+### Numerical Features
 ![EDA Unvariate](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Unvariate%20Numerical.png)
 
-Berdasarkan hasil eksplorasi data univariat terhadap fitur numerik yaitu math score, reading score, dan writing score, dapat disimpulkan bahwa distribusi ketiga skor tersebut cenderung mengikuti pola distribusi normal, meskipun terlihat sedikit condong ke kiri (left-skewed), khususnya pada skor matematika dan menulis. Sebagian besar nilai berada dalam kisaran 60 hingga 80, yang menunjukkan bahwa mayoritas siswa memiliki performa akademik yang cukup baik. Skor membaca menunjukkan distribusi yang paling simetris, serta memiliki konsentrasi nilai tinggi lebih banyak dibanding dua skor lainnya, mengindikasikan bahwa kemampuan membaca siswa secara umum lebih unggul. Sementara itu, skor matematika memiliki beberapa nilai rendah yang secara realita tidak dapat dianggap sebagai outlier, namun tidak terlalu signifikan. Secara keseluruhan, ketiga skor ini menunjukkan distribusi yang baik dan stabil.
+Based on the results of univariate exploratory data analysis on numerical features namely math score, reading score, and writing score, it can be concluded that the distribution of these three scores tends to follow a normal distribution pattern, although slightly left-skewed, especially on math and writing scores. Most values are in the range of 60 to 80, indicating that the majority of students have fairly good academic performance. Reading scores show the most symmetrical distribution, with more high-value concentrations than the other two scores, indicating that students' reading ability is generally superior. Meanwhile, math scores have some low values that in reality cannot be considered outliers, but are not too significant. Overall, these three scores show a good and stable distribution.
 
-**Kesimpulan**
+**Conclusion**
 
-*   Histogram pertama menampilkan distribusi nilai ujian matematika (math score). Terlihat bahwa distribusi nilai cenderung unimodal dan mendekati distribusi normal, meskipun terdapat sedikit skewness ke kiri (ekor distribusi memanjang ke arah nilai yang lebih rendah). Sebagian besar siswa memperoleh nilai antara 60 hingga 80, dengan puncak frekuensi berada di sekitar nilai 65-70. Terdapat beberapa siswa dengan nilai yang sangat rendah (di bawah 40) dan juga beberapa siswa dengan nilai yang sangat tinggi (di atas 90), namun jumlahnya relatif lebih sedikit dibandingkan dengan kelompok nilai tengah.
-*   Histogram kedua menyajikan distribusi nilai ujian membaca (reading score). Distribusi nilai membaca tampak lebih mendekati distribusi normal dibandingkan dengan nilai matematika. Puncak frekuensi berada di sekitar nilai 70-80, dan sebagian besar siswa memperoleh nilai antara 60 hingga 90. Sebaran nilai membaca juga terlihat sedikit lebih lebar dibandingkan dengan nilai matematika, mengindikasikan variasi performa membaca antar siswa yang mungkin lebih besar. Jumlah siswa dengan nilai sangat rendah (di bawah 40) dan sangat tinggi (di atas 95) juga relatif sedikit.
-*   Histogram ketiga menggambarkan distribusi nilai ujian menulis (writing score). Distribusi nilai menulis juga terlihat unimodal dengan puncak frekuensi di sekitar nilai 65-75. Sebagian besar siswa memperoleh nilai antara 55 hingga 85. Distribusi nilai menulis menunjukkan skewness negatif yang lebih jelas dibandingkan dengan nilai matematika, dengan ekor distribusi yang lebih panjang ke arah nilai yang lebih rendah. Ini mengindikasikan bahwa terdapat lebih banyak siswa yang memperoleh nilai di bawah rata-rata dibandingkan dengan siswa yang memperoleh nilai jauh di atas rata-rata.
+*   The first histogram displays the distribution of math exam scores (math score). It can be seen that the score distribution tends to be unimodal and approaches a normal distribution, although there is slight left skewness (the distribution tail extends toward lower values). Most students obtain scores between 60 and 80, with the frequency peak around 65-70. There are some students with very low scores (below 40) and also some students with very high scores (above 90), but their numbers are relatively fewer compared to the middle score group.
+*   The second histogram presents the distribution of reading exam scores (reading score). The reading score distribution appears closer to a normal distribution compared to math scores. The frequency peak is around 70-80, and most students obtain scores between 60 and 90. The reading score spread also appears slightly wider compared to math scores, indicating that the variation in reading performance among students may be greater. The number of students with very low scores (below 40) and very high scores (above 95) is also relatively few.
+*   The third histogram illustrates the distribution of writing exam scores (writing score). The writing score distribution also appears unimodal with the frequency peak around 65-75. Most students obtain scores between 55 and 85. The writing score distribution shows more pronounced negative skewness compared to math scores, with a longer distribution tail toward lower values. This indicates that there are more students who obtain scores below average compared to students who obtain scores far above average.
 
 
 ### Exploratory data analysis - Multivariate Analysis
-### Fitur-fitur Kategorical Terhadap Target
+### Categorical Features Against Target
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Gender.png)
-Siswa perempuan memiliki skor rata-rata sedikit lebih tinggi (±70) dibandingkan siswa laki-laki (±68). Karena selisihnya kecil, maka fitur ini memiliki pengaruh yang rendah terhadap rata-rata skor.
+Female students have a slightly higher average score (±70) compared to male students (±68). Because the difference is small, this feature has a low influence on the average score.
 
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Lunch.png)
-Siswa yang mendapatkan makan siang standar memiliki skor rata-rata lebih tinggi (±72) dibandingkan dengan siswa yang mendapatkan makan siang gratis (±64). Hal ini menunjukkan bahwa status makan siang memiliki pengaruh yang cukup kuat terhadap rata-rata skor.
+Students who receive standard lunch have a higher average score (±72) compared to students who receive free lunch (±64). This shows that lunch status has a fairly strong influence on the average score.
 
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Pendidikan%20Orangtua.png)
-Siswa dengan orang tua berpendidikan tinggi seperti bachelor’s degree dan master’s degree cenderung memiliki rata-rata skor lebih tinggi (±71), sedangkan yang berasal dari orang tua dengan pendidikan some high school memiliki rata-rata skor lebih rendah (±65). Meskipun terlihat ada tren, perbedaan antar kelompok tidak terlalu tajam, sehingga fitur ini tidak terlalu berpengaruh terhadap skor.
+Students with highly educated parents such as bachelor's degree and master's degree tend to have higher average scores (±71), while those from parents with some high school education have lower average scores (±65). Although there appears to be a trend, the differences between groups are not too sharp, so this feature does not have too much influence on scores.
 
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Persiapan%20Tes.png)
-Siswa yang menyelesaikan kursus persiapan tes memiliki skor rata-rata lebih tinggi (±74) dibandingkan yang tidak mengikuti kursus (±67). Hal ini menunjukkan bahwa kursus persiapan tes memiliki pengaruh yang cukup kuat terhadap peningkatan skor rata-rata.
+Students who complete test preparation courses have a higher average score (±74) compared to those who do not take courses (±67). This shows that test preparation courses have a fairly strong influence on increasing average scores.
 
 ![EDA Multivariate Kategorical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Kategorical%20Ras.png)
-Kelompok E memiliki skor rata-rata tertinggi (±76), sementara kelompok lain berkisar antara 67 hingga 71. Perbedaan ini menunjukkan adanya variasi, namun tidak konsisten meningkat atau menurun antar kelompok, sehingga fitur ini memiliki pengaruh yang rendah terhadap skor.
+Group E has the highest average score (±76), while other groups range from 67 to 71. This difference shows variation, but is not consistently increasing or decreasing between groups, so this feature has a low influence on scores.
 
-**Kesimpulan**
+**Conclusion**
 
-Hasil analisis menunjukkan bahwa variabel kategorikal seperti pendidikan orangtua,jenis kelamin, jenis makan siang, tingkat pendidikan orangtua, partisipasi kursus, dan ras sebenarnya tidak memberikan dampak yang signifikan terhadap nilai rata-rata skor siswa. Hal ini ditunjukkan dengan nilai rata rata skor untuk tiap-tiap variabel yang hanya berada di kisaran 60-75.
+The analysis results show that categorical variables such as parental education, gender, lunch type, parental education level, course participation, and race actually do not have a significant impact on students' average score values. This is indicated by the average score value for each variable which is only in the range of 60-75.
 
-### Fitur-fitur Numerical Terhadap Target
+### Numerical Features Against Target
 ![EDA Multivariate Numerical](https://raw.githubusercontent.com/minggo-commits/student-performance-prediction/main/EDA%20Multivariate%20Numerical.png)
-Fitur numerik menunjukkan hubungan linear yang kuat satu sama lain, dengan korelasi tertinggi antara reading score dan writing score. Average score sangat bergantung secara proporsional pada ketiga skor asli, dan hubungan linear ini memvalidasi penggunaannya sebagai metrik gabungan. 
+Numerical features show strong linear relationships with each other, with the highest correlation between reading score and writing score. Average score depends proportionally on the three original scores, and this linear relationship validates its use as a combined metric.
 
-**Kesimpulan**
+**Conclusion**
 
-Analisis pair plot ini dengan jelas menunjukkan hubungan linear positif yang sangat kuat antara nilai matematika, membaca, dan menulis dengan rata-rata skor siswa. Selain itu, terdapat korelasi yang tinggi di antara ketiga nilai ujian itu sendiri. Temuan ini menggarisbawahi pentingnya ketiga mata pelajaran ini dalam menentukan performa akademik keseluruhan siswa. Model prediksi rata-rata skor kemungkinan akan sangat akurat jika menggunakan ketiga nilai ujian ini sebagai fitur. Tidak terlihat adanya pola non-linear yang signifikan atau outlier ekstrem yang perlu perhatian khusus dari visualisasi ini.
+This pair plot analysis clearly shows very strong positive linear relationships between math, reading, and writing scores with students' average scores. In addition, there is a high correlation among the three exam scores themselves. This finding underlines the importance of these three subjects in determining students' overall academic performance. The average score prediction model will likely be very accurate if using these three exam scores as features. There are no significant non-linear patterns or extreme outliers that need special attention from this visualization.
 
 ## Data Preparation
 
-- Karena dataset menunjukkan kondisi yang bersih tanpa adanya nilai yang hilang dan tidak terdapat outlier signifikan yang dapat berdampak negatif, maka tidak dilakukan pengurangan data.
+- Since the dataset shows a clean condition without missing values and no significant outliers that could have a negative impact, no data reduction was performed.
 
-- Feature Engineering: Membuat fitur baru berupa rata rata score yang didapatkan dari hasil math score + reading score + writing score dibagi 3, hal tersebut dilakukan mengingat belum adanya target pada dataset, sehingga perlu dilakukan feature engineering untuk menghasilkan fitur baru yang relevan.
+- Feature Engineering: Creating a new feature in the form of an average score obtained from math score + reading score + writing score divided by 3, this was done considering there was no target in the dataset, so feature engineering was needed to generate a new relevant feature.
 
-- Encoding fitur kategori: Feature encoding kategori seperti OneHotEncoder penting dilakukan karena sebagian besar algoritma machine learning tidak dapat menangani data kategorikal secara langsung. Mereka memerlukan input berupa angka, sedangkan beberapa fitur pada dataset tersebut berbentuk kategori, fitur fitur tersebut adalah gender, ras, level pendidikan orangtua, tipe makan siang, dan tes persiapan.
+- Categorical feature encoding: Categorical feature encoding such as OneHotEncoder is important because most machine learning algorithms cannot handle categorical data directly. They require numerical input, while some features in the dataset are categorical, these features are gender, race, parental education level, lunch type, and test preparation.
 
-- Reduksi dimensi dengan PCA: Reduksi dimensi dengan PCA (Principal Component Analysis) diperlukan karena fitur math score, reading score, dan writing score menunjukkan korelasi tinggi satu sama lain, yang berarti terdapat redundansi informasi. PCA membantu menyederhanakan fitur-fitur tersebut menjadi beberapa komponen utama yang tetap mempertahankan sebagian besar informasi, sehingga dapat meningkatkan efisiensi model, mengurangi risiko overfitting, dan mempermudah visualisasi data. Selain itu, PCA juga membantu menghilangkan noise dan menjaga struktur data dalam dimensi yang lebih rendah. Oleh karena itu fitur math score, reading score, dan writing score dimasukkan kedalam proses PCA menjadi sebuah fitur yang bernama student performance.
+- Dimensionality reduction with PCA: Dimensionality reduction with PCA (Principal Component Analysis) is needed because the math score, reading score, and writing score features show high correlation with each other, meaning there is information redundancy. PCA helps simplify these features into several main components that still retain most of the information, so it can improve model efficiency, reduce overfitting risk, and facilitate data visualization. In addition, PCA also helps eliminate noise and maintain data structure in lower dimensions. Therefore, the math score, reading score, and writing score features are included in the PCA process into a feature called student performance.
 
-- Train dan test split: Train-test split perlu dilakukan untuk mengevaluasi kinerja model secara objektif. Dengan membagi data menjadi data latih (train) dan data uji (test), kita dapat melatih model pada satu bagian data dan mengujinya pada data yang belum pernah dilihat sebelumnya. Hal ini penting untuk menilai kemampuan generalisasi model terhadap data baru dan mencegah overfitting, yaitu kondisi di mana model terlalu baik dalam menghafal data latih namun buruk dalam memprediksi data baru. Dalam kasus ini, data dibagi 90% untuk pelatihan dan 10% untuk pengujian, memberikan cukup data untuk pembelajaran sambil tetap menyisakan data yang representatif untuk evaluasi.
+- Train and test split: Train-test split needs to be done to objectively evaluate model performance. By dividing the data into training data (train) and test data (test), we can train the model on one part of the data and test it on data that has never been seen before. This is important to assess the model's ability to generalize to new data and prevent overfitting, which is a condition where the model is too good at memorizing training data but poor at predicting new data. In this case, the data is divided into 90% for training and 10% for testing, providing enough data for learning while still leaving representative data for evaluation.
 
-- Standarisasi: hal tersebut perlu dilakukan untuk menyamakan skala fitur numerik agar model machine learning dapat bekerja secara optimal. Fitur seperti student performance mungkin memiliki rentang nilai yang berbeda dibanding fitur lain, dan ini bisa menyebabkan model lebih condong atau berat sebelah terhadap fitur dengan nilai besar. Dengan standarisasi menggunakan StandardScaler, data diubah agar memiliki rata-rata 0 dan standar deviasi 1, sehingga semua fitur berada dalam skala yang seimbang. Ini sangat penting terutama untuk algoritma yang sensitif terhadap skala data seperti KNN, SVM, dan regresi linier. Hasil standarisasi menunjukkan bahwa data telah terpusat di sekitar nol dengan penyebaran standar yang seragam, memastikan proses pelatihan model menjadi lebih stabil dan akurat.
+- Standardization: this needs to be done to equalize the scale of numerical features so that machine learning models can work optimally. Features like student performance may have different value ranges compared to other features, and this can cause the model to be biased toward features with large values. By standardization using StandardScaler, data is transformed to have a mean of 0 and standard deviation of 1, so all features are on a balanced scale. This is especially important for algorithms that are sensitive to data scale such as KNN, SVM, and linear regression. Standardization results show that the data has been centered around zero with uniform standard spread, ensuring the model training process becomes more stable and accurate.
 
 ## Modeling
-Pada tahap ini dilakukan pengembangan model machine learning untuk memprediksi skor rata-rata siswa berdasarkan fitur-fitur input yang telah diproses sebelumnya. Tiga algoritma regresi digunakan, yaitu K-Nearest Neighbors (KNN), Random Forest Regressor, dan AdaBoost Regressor.
+At this stage, machine learning model development was carried out to predict students' average scores based on previously processed input features. Three regression algorithms were used, namely K-Nearest Neighbors (KNN), Random Forest Regressor, and AdaBoost Regressor.
 
 - **K-Nearest Neighbors (KNN)**
   
-K-Nearest Neighbors (KNN) adalah algoritma non-parametrik yang bekerja dengan cara membandingkan jarak antara data uji dengan seluruh data latih, lalu memilih k tetangga terdekat untuk melakukan prediksi. Nilai prediksi untuk regresi ditentukan dari rata-rata nilai target dari k tetangga terdekat tersebut. Model KNN digunakan dengan parameter n_neighbors=10 dan untuk parameter lainnya bernilai default. Kelebihan KNN adalah sederhana dan tidak membutuhkan proses pelatihan yang kompleks. Namun, KNN sangat sensitif terhadap skala fitur dan kurang efisien pada dataset besar. Model ini menghasilkan MSE (mean squared error) sebesar 0.0137 (train) dan 0.0113 (test).
+K-Nearest Neighbors (KNN) is a non-parametric algorithm that works by comparing the distance between test data and all training data, then selecting the k nearest neighbors to make predictions. The prediction value for regression is determined from the average target value of those k nearest neighbors. The KNN model is used with the parameter n_neighbors=10 and other parameters at default values. The advantages of KNN are simple and do not require complex training processes. However, KNN is very sensitive to feature scales and less efficient on large datasets. This model produces an MSE (mean squared error) of 0.0137 (train) and 0.0113 (test).
 
 - **Random Forest**
 
-Random Forest merupakan algoritma ensemble learning yang menggabungkan banyak pohon keputusan (decision trees) untuk meningkatkan akurasi prediksi. Setiap pohon dilatih pada subset data yang dipilih secara acak (bootstrap), dan hasil prediksi akhir diambil rata-rata dari semua pohon. Random Forest digunakan dengan n_estimators=50, max_depth=16, random_state=55, n_jobs=-1 serta parameter lain yang bernilai default. Algoritma ini mampu menangani data dengan fitur non-linear dan tidak sensitif terhadap skala fitur. Namun random forest memerlukan sumber daya komputasi besar dan kurang interpretatif. Hasil evaluasi menunjukkan performa terbaik dibanding model lain, dengan MSE sangat kecil yaitu 0.000009 (train) dan 0.000008 (test). Ini menunjukkan model sangat akurat dalam menangkap pola data.
+Random Forest is an ensemble learning algorithm that combines many decision trees to improve prediction accuracy. Each tree is trained on a randomly selected subset of data (bootstrap), and the final prediction result is taken from the average of all trees. Random Forest is used with n_estimators=50, max_depth=16, random_state=55, n_jobs=-1 and other parameters at default values. This algorithm can handle data with non-linear features and is not sensitive to feature scales. However, random forest requires large computational resources and is less interpretable. Evaluation results show the best performance compared to other models, with very small MSE of 0.000009 (train) and 0.000008 (test). This shows the model is very accurate in capturing data patterns.
 
 - **AdaBoost Regressor**
 
-AdaBoost (Adaptive Boosting) bekerja dengan membentuk model ensemble dari sejumlah weak learners, biasanya decision tree berukuran kecil. Setiap model baru dibangun dengan fokus pada data yang salah diklasifikasikan oleh model sebelumnya. Hasil akhir prediksi merupakan kombinasi tertimbang dari seluruh model. AdaBoost digunakan dengan learning_rate=0.05 dan random_state=55 serta parameter lainnya yang bernilai default. Algoritma ini meningkatkan akurasi model dengan menggabungkan banyak prediktor sederhana, akan tetapi rentan terhadap data outlier dan noise. Hasil yang diperoleh cukup baik, dengan MSE 0.0024 (train) dan 0.0029 (test), namun masih kalah dari Random Forest.
+AdaBoost (Adaptive Boosting) works by forming an ensemble model from a number of weak learners, usually small-sized decision trees. Each new model is built with focus on data misclassified by the previous model. The final prediction result is a weighted combination of all models. AdaBoost is used with learning_rate=0.05 and random_state=55 and other parameters at default values. This algorithm improves model accuracy by combining many simple predictors, however it is vulnerable to outlier data and noise. The results obtained are quite good, with MSE 0.0024 (train) and 0.0029 (test), but still inferior to Random Forest.
 
-**Kesimpulan**
+**Conclusion**
 
-Berdasarkan hasil evaluasi MSE pada data latih dan uji, Random Forest dipilih sebagai model terbaik karena menghasilkan error paling rendah di antara semua model yang diuji. Selain itu, model ini juga lebih stabil dan mampu menangani kompleksitas data tanpa mengalami overfitting.
+Based on the MSE evaluation results on training and test data, Random Forest was chosen as the best model because it produces the lowest error among all tested models. In addition, this model is also more stable and able to handle data complexity without experiencing overfitting.
 
 ## Evaluation
-Karena proyek ini merupakan kasus regresi, maka metrik evaluasi yang digunakan adalah Mean Squared Error (MSE). MSE mengukur rata-rata kuadrat selisih antara nilai aktual (y_true) dan nilai prediksi (y_pred). Semakin kecil nilai MSE, semakin akurat model dalam melakukan prediksi. Metrik ini cocok digunakan karena memberikan penalti yang lebih besar pada kesalahan prediksi yang jauh dari nilai sebenarnya. MSE dihitung menggunakan rumus berikut:
+Since this project is a regression case, the evaluation metric used is Mean Squared Error (MSE). MSE measures the average squared difference between actual values (y_true) and predicted values (y_pred). The smaller the MSE value, the more accurate the model in making predictions. This metric is suitable to use because it gives a greater penalty to prediction errors that are far from the actual value. MSE is calculated using the following formula:
 
 ![MSE Formula](https://cdn.analyticsvidhya.com/wp-content/uploads/2024/07/image-37.png)
 
 
-Cara kerja MSE adalah dengan menghitung selisih antara nilai aktual dan prediksi untuk setiap data, lalu mengkuadratkan selisih tersebut agar tidak ada nilai negatif dan memberi penalti lebih besar terhadap kesalahan prediksi yang jauh. Kemudian seluruh kuadrat error dijumlahkan dan dirata-ratakan.
+The way MSE works is by calculating the difference between actual and predicted values for each data point, then squaring that difference so there are no negative values and giving a greater penalty to prediction errors that are far off. Then all the squared errors are summed and averaged.
 
-MSE efektif digunakan dalam regresi karena memberikan pemahaman seberapa besar rata-rata kesalahan model dalam satuan kuadrat dari target. Nilai MSE yang lebih rendah menunjukkan model yang lebih baik dalam memprediksi target.
+MSE is effectively used in regression because it provides an understanding of how large the average model error is in squared units of the target. A lower MSE value indicates a better model in predicting the target.
 
-**Hasil Evaluasi Model**
+**Model Evaluation Results**
 
-Berdasarkan hasil evaluasi terhadap tiga model, diperoleh hasil sebagai berikut:
+Based on the evaluation results of the three models, the following results were obtained:
 | Model        | Train MSE | Test MSE |
 |--------------|-----------|----------|
 | KNN          | 0.0137    | 0.0113   |
@@ -217,11 +217,11 @@ Berdasarkan hasil evaluasi terhadap tiga model, diperoleh hasil sebagai berikut:
 | Boosting     | 0.0024    | 0.0029   |
 
 
-Dari tabel di atas, terlihat bahwa Random Forest Regressor memiliki performa terbaik dengan nilai MSE terkecil baik pada data latih maupun data uji. Hal ini menunjukkan bahwa model ini mampu melakukan generalisasi dengan sangat baik, serta minim terhadap overfitting.
+From the table above, it can be seen that Random Forest Regressor has the best performance with the smallest MSE value both on training and test data. This shows that this model is able to generalize very well, and has minimal overfitting.
 
-**Evaluasi Prediksi**
+**Prediction Evaluation**
 
-Untuk melihat kualitas prediksi lebih lanjut, dilakukan perbandingan antara nilai aktual (y_true) dan hasil prediksi dari ketiga model:
+To see the quality of predictions further, a comparison was made between actual values (y_true) and prediction results from the three models:
 | y_true | KNN  | RandomForest | Boosting |
 |--------|------|--------------|----------|
 | 56.3   | 60.3 | 56.3         | 56.7     |
@@ -229,4 +229,4 @@ Untuk melihat kualitas prediksi lebih lanjut, dilakukan perbandingan antara nila
 | 72.0   | 73.5 | 72.0         | 70.4     |
 | 63.3   | 67.8 | 63.3         | 63.8     |
 
-Dari tabel tersebut, dapat dilihat bahwa hasil prediksi Random Forest paling konsisten mendekati nilai sebenarnya dibanding model lainnya. Hal ini menguatkan alasan pemilihan Random Forest sebagai model akhir.
+From that table, it can be seen that Random Forest prediction results are most consistently close to the actual values compared to other models. This strengthens the reason for choosing Random Forest as the final model.
